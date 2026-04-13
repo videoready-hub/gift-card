@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:title"
+      content="Exclusive free gift cards for everyone."
+    />
+    <meta property="og:description" content="You may get this!" />
+    <meta
+      property="og:image"
+      content="https://musicland.cl/wp-content/uploads/2020/12/Gift-card-2-50.000-800x800.png.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://free-gift-card-offers.netlify.app/"
+    />
+    <title>Premium Gift Card & Offers</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Add this in <head> if not already -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <!-- Hassan bhai Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #042549; /* ডার্ক নেভি ব্লু কালার */
+        padding: 20px;
+        font-family: "Montserrat", sans-serif;
+        color: #fff;
+      }
+      h1 {
+        margin-bottom: 30px;
+        font-weight: bold;
+        color: #f0f0f0;
+      }
+
+      /* Gradient text effect */
+      h1 {
+        font-weight: bold;
+        background: linear-gradient(270deg, #ff00ff, #0000ff, #00ff00, #ff0000);
+        background-size: 800% 800%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: rgbFlow 8s ease infinite;
+      }
+
+      @keyframes rgbFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Gradient text effect */
+      .card-title {
+        font-weight: bold;
+        background: linear-gradient(270deg, #ff0000, #00ff00, #0000ff, #ff00ff);
+        background-size: 800% 800%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: rgbFlow 8s ease infinite;
+      }
+
+      @keyframes rgbFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .section {
+        margin-bottom: 100px;
+      }
+
+      /* কার্ডের জন্য স্টাইল */
+      .custom-card {
+        cursor: pointer;
+        margin: 10px; /* extra spacing */
+        transition: transform 0.3s, box-shadow 0.3s;
+        overflow: hidden;
+        background-color: #1a2c3a; /* গাঢ় ডিস্কোভার কালার */
+        height: auto; /* সব অক্ষরে সমান উচ্চতা */
+        display: flex;
+        flex-direction: column;
+        /* background: rgba(255, 255, 255, 0.08); */
+        backdrop-filter: blur(8px);
+        border-radius: 15px;
+        border: 1px solid rgb(10, 247, 22);
+        box-shadow: 0 8px 20px rgba(3, 148, 153, 0.61);
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+
+      /* hover effect */
+      .custom-card:hover {
+        transform: translateY(-10px) scale(1.04);
+        box-shadow: 0 15px 30px rgba(5, 41, 243, 0.5);
+      }
+
+      /* ইমেজের জন্য স্টাইল */
+      .card-img-top {
+        height: auto;
+        max-height: 220px;
+        object-fit: contain;
+        width: 100%;
+      }
+
+      /* কার্ডের মিডিয়া অংশ */
+      .card-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        /* justify-content: space-between; */
+        padding: 5px;
+      }
+
+      /* কার্ড টাইটেল & টেক্সট */
+      .card-title {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        color: white;
+      }
+      .card-text {
+        font-size: 0.9rem;
+        color: #ccc;
+      }
+
+      /* দেশের লোগো গুলোর জন্য */
+      .country-logos {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+      }
+      .country-logos img {
+        height: 8px;
+        width: auto;
+        object-fit: contain;
+        filter: brightness(1.2) contrast(1.2); /* কিছুটা উজ্জ্বলতা যোগ করতে */
+      }
+
+      /* রেসপন্সিভ স্টাইল */
+      @media (max-width: 767px) {
+        .card-grid {
+          flex-direction: column;
+          align-items: center;
+        }
+      }
+
+      /* ================================
+   Floating Button Base
+=================================== */
+      #floatingShareBtn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        cursor: grab;
+        user-select: none;
+      }
+
+      /* ================================
+   Main Icon Container (Glassmorphism)
+=================================== */
+      .main-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 10px 18px;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        color: white;
+        font-weight: bold;
+        font-size: 16px;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+        animation: pulse 2s infinite;
+        overflow: hidden;
+      }
+
+      /* Gradient Border with Glow */
+      .main-icon::before {
+        content: "";
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 50px;
+        background: linear-gradient(
+          270deg,
+          red,
+          orange,
+          yellow,
+          green,
+          blue,
+          indigo,
+          violet,
+          red
+        );
+        background-size: 400% 400%;
+        animation: rainbowBorder 8s linear infinite;
+        z-index: -1;
+        filter: blur(8px);
+      }
+
+      /* Ripple effect */
+      .main-icon::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 50px;
+        background: rgba(255, 255, 255, 0.3);
+        transform: scale(0);
+        opacity: 0;
+        pointer-events: none;
+        animation: rippleAnim 2s infinite ease-in-out;
+      }
+
+      /* Icon Rotation */
+      .main-icon img {
+        width: 28px;
+        height: 28px;
+        animation: rotateIcon 2s linear infinite;
+        filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+      }
+
+      /* ================================
+   Share Menu
+=================================== */
+      #floatingShareBtn .share-menu {
+        display: none;
+        position: absolute;
+        bottom: 70px;
+        right: 0;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        padding: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        transition: opacity 0.4s ease, transform 0.3s ease;
+        transform: translateY(10px);
+      }
+
+      #floatingShareBtn .share-menu.show {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Share icons inside menu */
+      #floatingShareBtn .share-menu img {
+        width: 28px;
+        height: 28px;
+        filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+      }
+
+      /* Share menu items style */
+      #floatingShareBtn .share-menu a {
+        display: block;
+        margin: 5px 0;
+        text-align: center;
+        padding: 8px;
+        border-radius: 12px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Gradient border animation */
+      #floatingShareBtn .share-menu a::before {
+        content: "";
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        right: -2px;
+        bottom: -2px;
+        border-radius: 14px;
+        background: linear-gradient(
+          270deg,
+          red,
+          orange,
+          yellow,
+          green,
+          blue,
+          indigo,
+          violet,
+          red
+        );
+        background-size: 400% 400%;
+        animation: rainbowBorderSlow 10s linear infinite;
+        z-index: -1;
+      }
+
+      /* White semi-transparent background inside */
+      #floatingShareBtn .share-menu a::after {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        right: 2px;
+        bottom: 2px;
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.85);
+        z-index: -1;
+      }
+
+      /* Rainbow border keyframes */
+      @keyframes rainbowBorderSlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Hover glow effect (matches main button) */
+      #floatingShareBtn .share-menu a:hover {
+        transform: scale(1.08);
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), 0 0 20px red,
+          0 0 25px orange, 0 0 30px yellow, 0 0 35px green, 0 0 40px blue,
+          0 0 45px indigo, 0 0 50px violet;
+      }
+
+      /* ================================
+   Animations
+=================================== */
+      @keyframes rotateIcon {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+      }
+
+      @keyframes rainbowBorder {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes rippleAnim {
+        0% {
+          transform: scale(0);
+          opacity: 0.6;
+        }
+        70% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(0);
+          opacity: 0;
+        }
+      }
+
+      /* Common Responsive Style */
+      .banner_ads_728x90,
+      .banner_ads_320x50,
+      .banner_ads_300x250 {
+        width: 100%; /* মোবাইলে পুরো container নেবে */
+        margin: 10px auto; /* মাঝে সেন্টার হয়ে থাকবে */
+        text-align: center; /* ভেতরের কন্টেন্ট center এ */
+      }
+
+      .banner_ads_728x90 {
+        max-width: 728px;
+      }
+      .banner_ads_320x50 {
+        max-width: 320px;
+      }
+      .banner_ads_300x250 {
+        max-width: 300px;
+      }
+
+      .banner_ads_728x90 *,
+      .banner_ads_320x50 *,
+      .banner_ads_300x250 * {
+        max-width: 100%; /* ভেতরের ইমেজ/iframe responsive হবে */
+        height: auto;
+        display: inline-block;
+      }
+
+      .footer-full {
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        width: 100vw;
+        box-sizing: border-box;
+        background: rgb(70, 38, 86);
+        color: #380ef1;
+      }
+
+      /* Row এর gutter (gap) 0 করে দিলাম */
+      .footer-full .row.g-0 {
+        margin: 0;
+      }
+
+      /* প্রতিটি কলামের ভিতরের padding রাখতে পারেন (এখানে ছোট প্যাডিং) */
+      .footer-full .col p,
+      .footer-full .col h6 {
+        margin: 0 0 8px 0;
+      }
+
+      /* ছোট মাইক্রো স্টাইল */
+      .footer-full .col {
+        padding: 28px 20px;
+        border-right: 0; /* যদি চান কলামগুলোর মাঝে লাইন দেবেন না */
+      }
+      /* মোবাইল-এ কলাম spacing সামঞ্জস্য করতে */
+      @media (max-width: 767px) {
+        .footer-full .col {
+          padding: 18px 12px;
+        }
+      }
+
+      /* নিচের copyright বার */
+      .footer-bottom {
+        background: rgba(0, 0, 0, 0.45);
+        font-size: 0.85rem;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      /* ফুটারের আগের সেকশনের নিচের gap সরানোর জন্য */
+      .section:last-of-type {
+        margin-bottom: 0;
+      }
+
+      /* Full Width Header */
+      .header-full {
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100vw;
+        background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+      }
+
+      /* Remove container padding */
+      .header-full .container-fluid {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      /* Brand gradient text */
+      .premium-header .navbar-brand {
+        font-size: 1.4rem;
+        font-weight: 700;
+        background: linear-gradient(90deg, #00ffff, #00ff62);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin: 0;
+      }
+
+      /* Nav links */
+      .premium-header .nav-link {
+        color: white !important;
+        margin: 0 8px;
+        font-weight: 500;
+        transition: color 0.3s ease;
+      }
+      .premium-header .nav-link:hover {
+        color: #ff00b3 !important;
+      }
+
+      /* CTA button */
+      .btn-gradient {
+        background: linear-gradient(90deg, #03f818, #fffb03);
+        color: black;
+        font-weight: bold;
+        border-radius: 25px;
+        padding: 8px 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .btn-gradient:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgb(248, 4, 4);
+        color: #fff;
+      }
+    </style>
+    <script>
+      (function () {
+        // প্রথমে ব্যাক বাটন ব্লক করার জন্য স্টেট পুশ করা হবে
+        window.history.pushState(null, null, window.location.href);
+
+        window.onpopstate = function () {
+          // ইউজার ব্যাক বাটনে ক্লিক করলে এড পেজে পাঠানো হবে
+          window.location.href = "https://otieu.com/4/9535326"; // এখানে আপনার বিজ্ঞাপনের লিংক দিন
+        };
+      })();
+    </script>
+
+    <!--Redirect a ad after 60 secound-->
+    <script>
+      setTimeout(function () {
+        window.location.href = "https://otieu.com/4/9535326"; // এখানে আপনার বিজ্ঞাপনের লিংক দিন
+      }, 60000); // 6০ সেকেন্ড (6০,০০০ মিলিসেকেন্ড)
+    </script>
+  </head>
+  <body>
+    <!-- Header/Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark premium-header">
+      <div class="container-fluid px-4">
+        <!-- Logo / Brand -->
+        <a class="navbar-brand fw-bold" href="https://otieu.com/4/9678385">
+          <i class="bi bi-gift-fill me-2"></i> GiftCard Deals
+        </a>
+
+        <!-- Mobile Toggle Button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Nav Links -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="https://otieu.com/4/9678385"
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://otieu.com/4/9678385">Offers</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://otieu.com/4/9678385"
+                >Upcoming</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://otieu.com/4/9678385">Expired</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://otieu.com/4/9678385">Contact</a>
+            </li>
+          </ul>
+
+          <!-- Call to Action Button -->
+          <a
+            href="https://otieu.com/4/9678385"
+            class="btn btn-gradient ms-lg-3 mt-2 mt-lg-0"
+          >
+            Claim Now
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- <h1 class="text-center mb-5">Exclusive Gift Card & Offer Deals</h1> -->
+    <br />
+    <!-- Hassan bhai Available Offers -->
+    <div class="section">
+      <h1 class="text-center mb-4">Available Offers</h1>
+      <div class="container">
+        <div class="row g-3 justify-content-center" id="available-offers">
+          <!-- Hassan bhai কার্ড অ্যাড করো এই রকম -->
+          <div class="col-md-3 col-sm-6">
+            <div
+              class="card custom-card"
+              data-link="https://otieu.com/4/9545954"
+            >
+              <img
+                src="https://media.licdn.com/dms/image/v2/D5612AQE2nw-YqZkiHQ/article-cover_image-shrink_720_1280/B56ZY1d2SIGcAI-/0/1744653740152?e=2147483647&v=beta&t=gnhyLB0EWn_MXDfASVsb4NJo3AZ99qJW5VpKHph7yTU"
+                class="card-img-top"
+                alt="Amazon Gift Card"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">Amazon Gift Card $500</h5>
+                <div class="country-logos">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="US Flag"
+                    title="United States"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                    alt="Canada Flag"
+                    title="Canada"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1200px-Flag_of_Australia_%28converted%29.svg.png"
+                    alt="Australia Flag"
+                    title="Australia"
+                  />
+                  <img
+                    src="https://cdn.britannica.com/25/4825-050-977D8C5E/Flag-United-Kingdom.jpg"
+                    alt="United-Kingdom Flag"
+                    title="United-Kingdom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div
+              class="card custom-card"
+              data-link="https://otieu.com/4/9545954"
+            >
+              <img
+                src="https://m.media-amazon.com/images/I/61+aNfMCAdL.jpg"
+                class="card-img-top"
+                alt="Amazon Gift Card"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">Paypal Gift Card $100</h5>
+                <div class="country-logos">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="US Flag"
+                    title="United States"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                    alt="Canada Flag"
+                    title="Canada"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1200px-Flag_of_Australia_%28converted%29.svg.png"
+                    alt="Australia Flag"
+                    title="Australia"
+                  />
+                  <img
+                    src="https://cdn.britannica.com/25/4825-050-977D8C5E/Flag-United-Kingdom.jpg"
+                    alt="United-Kingdom Flag"
+                    title="United-Kingdom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div
+              class="card custom-card"
+              data-link="https://otieu.com/4/9545954"
+            >
+              <img
+                src="https://miro.medium.com/v2/resize:fit:458/1*7hj87zKsVXPxpOy0496lOA.jpeg"
+                class="card-img-top"
+                alt="Amazon Gift Card"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">Paypal Gift Card $100</h5>
+                <div class="country-logos">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="US Flag"
+                    title="United States"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                    alt="Canada Flag"
+                    title="Canada"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1200px-Flag_of_Australia_%28converted%29.svg.png"
+                    alt="Australia Flag"
+                    title="Australia"
+                  />
+                  <img
+                    src="https://cdn.britannica.com/25/4825-050-977D8C5E/Flag-United-Kingdom.jpg"
+                    alt="United-Kingdom Flag"
+                    title="United-Kingdom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div
+              class="card custom-card"
+              data-link="https://otieu.com/4/9545954"
+            >
+              <img
+                src="https://livecards.net/pi/usa-itunes-gc-100-usd-70041.png"
+                class="card-img-top"
+                alt="Gift Card"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  Apple iTunes Gift Card $25
+                </h5>
+                <div class="country-logos">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="US Flag"
+                    title="United States"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                    alt="Canada Flag"
+                    title="Canada"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1200px-Flag_of_Australia_%28converted%29.svg.png"
+                    alt="Australia Flag"
+                    title="Australia"
+                  />
+                  <img
+                    src="https://cdn.britannica.com/25/4825-050-977D8C5E/Flag-United-Kingdom.jpg"
+                    alt="United-Kingdom Flag"
+                    title="United-Kingdom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hassan bhai Upcoming Offers -->
+    <div class="section">
+      <h1 class="text-center mb-4">Upcoming Offers</h1>
+      <div class="container">
+        <div class="row g-3 justify-content-center" id="upcoming-offers">
+          <div class="col-md-3 col-sm-6">
+            <div
+              class="card custom-card"
+              data-link="https://otieu.com/4/9972345"
+            >
+              <img
+                src="https://gaming-cdn.com/images/products/10596/orig/playstation-store-gift-card-60-60-card-playstation-4-playstation-5-game-playstation-store-united-states-cover.jpg?v=1719824258"
+                class="card-img-top"
+                alt="Upcoming Offer"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">PlayStation Voucher</h5>
+                <div class="country-logos">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="US Flag"
+                    title="United States"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                    alt="Canada Flag"
+                    title="Canada"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1200px-Flag_of_Australia_%28converted%29.svg.png"
+                    alt="Australia Flag"
+                    title="Australia"
+                  />
+                  <img
+                    src="https://cdn.britannica.com/25/4825-050-977D8C5E/Flag-United-Kingdom.jpg"
+                    alt="United-Kingdom Flag"
+                    title="United-Kingdom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div
+              class="card custom-card"
+              data-link="https://otieu.com/4/9972345"
+            >
+              <img
+                src="https://gaming-cdn.com/images/products/10596/orig/playstation-store-gift-card-60-60-card-playstation-4-playstation-5-game-playstation-store-united-states-cover.jpg?v=1719824258"
+                class="card-img-top"
+                alt="Upcoming Offer"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">PlayStation Voucher</h5>
+                <div class="country-logos">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="US Flag"
+                    title="United States"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                    alt="Canada Flag"
+                    title="Canada"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1200px-Flag_of_Australia_%28converted%29.svg.png"
+                    alt="Australia Flag"
+                    title="Australia"
+                  />
+                  <img
+                    src="https://cdn.britannica.com/25/4825-050-977D8C5E/Flag-United-Kingdom.jpg"
+                    alt="United-Kingdom Flag"
+                    title="United-Kingdom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div
+              class="card custom-card"
+              data-link="https://otieu.com/4/9972345"
+            >
+              <img
+                src="https://gaming-cdn.com/images/products/10596/orig/playstation-store-gift-card-60-60-card-playstation-4-playstation-5-game-playstation-store-united-states-cover.jpg?v=1719824258"
+                class="card-img-top"
+                alt="Upcoming Offer"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">PlayStation Voucher</h5>
+                <div class="country-logos">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="US Flag"
+                    title="United States"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                    alt="Canada Flag"
+                    title="Canada"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1200px-Flag_of_Australia_%28converted%29.svg.png"
+                    alt="Australia Flag"
+                    title="Australia"
+                  />
+                  <img
+                    src="https://cdn.britannica.com/25/4825-050-977D8C5E/Flag-United-Kingdom.jpg"
+                    alt="United-Kingdom Flag"
+                    title="United-Kingdom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hassan bhai Expired Offers -->
+    <div class="section">
+      <h1 class="text-center mb-4">Expired Offers</h1>
+      <div class="container">
+        <div class="row g-3 justify-content-center" id="expired-offers">
+          <div class="col-md-3 col-sm-6">
+            <div class="card custom-card" data-link="#">
+              <img
+                src="https://pbs.twimg.com/media/FJLTZLRWQAEzJ1l.jpg"
+                class="card-img-top"
+                alt="Expired Offer"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  Expired Amazon Gift Card $25
+                </h5>
+                <div class="country-logos">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="US Flag"
+                    title="United States"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                    alt="Canada Flag"
+                    title="Canada"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1200px-Flag_of_Australia_%28converted%29.svg.png"
+                    alt="Australia Flag"
+                    title="Australia"
+                  />
+                  <img
+                    src="https://cdn.britannica.com/25/4825-050-977D8C5E/Flag-United-Kingdom.jpg"
+                    alt="United-Kingdom Flag"
+                    title="United-Kingdom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6">
+            <div class="card custom-card" data-link="#">
+              <img
+                src="https://pbs.twimg.com/media/FJLTZLRWQAEzJ1l.jpg"
+                class="card-img-top"
+                alt="Expired Offer"
+              />
+              <div class="card-body">
+                <h5 class="card-title text-center">
+                  Expired Amazon Gift Card $25
+                </h5>
+                <div class="country-logos">
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/en/a/a4/Flag_of_the_United_States.svg"
+                    alt="US Flag"
+                    title="United States"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/c/cf/Flag_of_Canada.svg"
+                    alt="Canada Flag"
+                    title="Canada"
+                  />
+                  <img
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/88/Flag_of_Australia_%28converted%29.svg/1200px-Flag_of_Australia_%28converted%29.svg.png"
+                    alt="Australia Flag"
+                    title="Australia"
+                  />
+                  <img
+                    src="https://cdn.britannica.com/25/4825-050-977D8C5E/Flag-United-Kingdom.jpg"
+                    alt="United-Kingdom Flag"
+                    title="United-Kingdom"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hassan bhaiFloating Share Button-->
+    <div id="floatingShareBtn" title="Drag me">
+      <div class="main-icon">
+        <span class="main-text">SHARE</span>
+        <img
+          alt="Share Icon"
+          src="https://cdn-icons-png.flaticon.com/512/786/786205.png"
+        />
+      </div>
+
+      <div class="share-menu" id="shareMenu">
+        <a
+          href="fb-messenger://share?link=https://free-gift-card-offers.netlify.app/"
+          onclick="shareMessenger()"
+          target="_blank"
+        >
+          <img
+            alt="Messenger"
+            src="https://img.icons8.com/?size=100&amp;id=VFMgSms8GmnV&amp;format=png&amp;color=000000"
+          />
+        </a>
+        <a
+          href="https://otieu.com/4/9678385"
+          onclick="shareWhatsApp()"
+          target="_blank"
+        >
+          <img
+            alt="WhatsApp"
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+          />
+        </a>
+        <a onclick="copyLink()">
+          <img
+            alt="copy"
+            src="https://cdn-icons-png.flaticon.com/512/1621/1621635.png"
+          />
+        </a>
+      </div>
+    </div>
+
+    <!-- Hassan bhai Ad Section 728x90 -->
+    <!-- <section class="banner_ads_728x90">
+      <script type="text/javascript">
+        atOptions = {
+          key: "77055a7a775ced6d5d64ac2b6fa3ac84",
+          format: "iframe",
+          height: 90,
+          width: 728,
+          params: {},
+        };
+      </script>
+      <script
+        type="text/javascript"
+        src="//www.highperformanceformat.com/77055a7a775ced6d5d64ac2b6fa3ac84/invoke.js"
+      ></script>
+    </section> -->
+
+    <!-- Full-Width Bootstrap Footer (no side gaps) -->
+    <footer class="footer-full">
+      <div class="container-fluid p-0">
+        <div class="row g-0">
+          <!-- About -->
+          <div class="col-md-3 col-6">
+            <div class="px-3">
+              <h6 class="fw-bold">🎁 Gift Card Deals</h6>
+              <p class="small">
+                Exclusive offers for USA, Canada & Australia. Premium rewards
+                you can trust.
+              </p>
+            </div>
+          </div>
+
+          <!-- Products -->
+          <div class="col-md-3 col-6">
+            <div class="px-3">
+              <h6 class="fw-bold">Products</h6>
+              <ul class="list-unstyled small mb-0">
+                <li>
+                  <a
+                    href="https://otieu.com/4/9678385"
+                    class="text-reset text-decoration-none"
+                    >Amazon</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://otieu.com/4/9678385"
+                    class="text-reset text-decoration-none"
+                    >PayPal</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://otieu.com/4/9678385"
+                    class="text-reset text-decoration-none"
+                    >iTunes</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://otieu.com/4/9678385"
+                    class="text-reset text-decoration-none"
+                    >PlayStation</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Useful Links -->
+          <div class="col-md-3 col-6">
+            <div class="px-3">
+              <h6 class="fw-bold">Useful Links</h6>
+              <ul class="list-unstyled small mb-0">
+                <li>
+                  <a
+                    href="https://otieu.com/4/9678385"
+                    class="text-reset text-decoration-none"
+                    >Your Account</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://otieu.com/4/9678385"
+                    class="text-reset text-decoration-none"
+                    >Claim Offers</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://otieu.com/4/9678385"
+                    class="text-reset text-decoration-none"
+                    >Help Center</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="https://otieu.com/4/9678385"
+                    class="text-reset text-decoration-none"
+                    >Support</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div class="col-md-3 col-6">
+            <div class="px-3">
+              <h6 class="fw-bold">Contact</h6>
+              <p class="small mb-1">
+                <i class="bi bi-house-door me-2"></i> New York, USA
+              </p>
+              <p class="small mb-1">
+                <i class="bi bi-envelope me-2"></i> support@giftcards.com
+              </p>
+              <p class="small mb-0">
+                <i class="bi bi-phone me-2"></i> +88 01613971154
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom text-white">
+          © 2025 GiftCard Deals | All Rights Reserved
+        </div>
+      </div>
+    </footer>
+
+    <!-- Hassan bhai Bootstrap JS & jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      // ক্লিক করা হলে লিঙ্কে যাওয়া
+      document.querySelectorAll(".custom-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const url = card.getAttribute("data-link");
+          if (url && url !== "#") {
+            window.location.href = url;
+          } else {
+            alert("This offer has expired or is not available.");
+          }
+        });
+      });
+    </script>
+
+    <script>
+      function shareMessenger() {
+        const url = "https://free-gift-card-offers.netlify.app/";
+        const appId = "603247346192911";
+
+        const messengerWeb = `https://www.facebook.com/dialog/send?link=${encodeURIComponent(
+          url
+        )}&app_id=${appId}&redirect_uri=${encodeURIComponent(url)}`;
+        const messengerApp = `fb-messenger://share?link=${encodeURIComponent(
+          url
+        )}`;
+
+        if (/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent)) {
+          window.location.href = messengerApp;
+
+          // fallback 1 সেকেন্ড পর
+          setTimeout(() => {
+            window.open(messengerWeb, "_blank");
+          }, 1000);
+        } else {
+          window.open(messengerWeb, "_blank");
+        }
+      }
+
+      function shareWhatsApp() {
+        const text =
+          "Exclusive free gift cards for everyone: https://free-gift-card-offers.netlify.app/";
+        const encoded = encodeURIComponent(text);
+        const whatsappLink = `https://wa.me/?text=${encoded}`;
+
+        window.open(whatsappLink, "_blank");
+      }
+
+      function copyLink() {
+        const copyText =
+          "Exclusive free gift cards for everyone: https://free-gift-card-offers.netlify.app/";
+        const tempInput = document.createElement("input");
+        tempInput.value = copyText;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999);
+
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+
+        alert("✅ Link has successfully copied!");
+      }
+    </script>
+
+    <script>
+      const btn = document.getElementById("floatingShareBtn");
+      const menu = document.getElementById("shareMenu");
+
+      let isDragging = false;
+      let offsetX, offsetY;
+
+      // Function to start dragging (mouse + touch)
+      function startDrag(e) {
+        isDragging = true;
+
+        let clientX = e.type.includes("touch")
+          ? e.touches[0].clientX
+          : e.clientX;
+        let clientY = e.type.includes("touch")
+          ? e.touches[0].clientY
+          : e.clientY;
+
+        offsetX = clientX - btn.getBoundingClientRect().left;
+        offsetY = clientY - btn.getBoundingClientRect().top;
+        btn.style.cursor = "grabbing";
+      }
+
+      // Function to move button
+      function onDrag(e) {
+        if (!isDragging) return;
+
+        let clientX = e.type.includes("touch")
+          ? e.touches[0].clientX
+          : e.clientX;
+        let clientY = e.type.includes("touch")
+          ? e.touches[0].clientY
+          : e.clientY;
+
+        let x = clientX - offsetX;
+        let y = clientY - offsetY;
+
+        btn.style.left = x + "px";
+        btn.style.top = y + "px";
+        btn.style.bottom = "auto";
+        btn.style.right = "auto";
+      }
+
+      // Function to stop dragging
+      function stopDrag() {
+        isDragging = false;
+        btn.style.cursor = "grab";
+      }
+
+      // Mouse Events
+      btn.addEventListener("mousedown", startDrag);
+      document.addEventListener("mousemove", onDrag);
+      document.addEventListener("mouseup", stopDrag);
+
+      // Touch Events
+      btn.addEventListener("touchstart", startDrag, { passive: false });
+      document.addEventListener("touchmove", onDrag, { passive: false });
+      document.addEventListener("touchend", stopDrag);
+
+      // Click to toggle menu
+      btn.addEventListener("click", function (e) {
+        if (!isDragging) {
+          menu.classList.toggle("show");
+        }
+        e.stopPropagation();
+      });
+
+      document.addEventListener("click", function (e) {
+        if (!btn.contains(e.target)) {
+          menu.classList.remove("show");
+        }
+      });
+    </script>
+  </body>
+</html>
